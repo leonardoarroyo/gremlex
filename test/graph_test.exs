@@ -237,6 +237,14 @@ defmodule Gremlex.GraphTests do
     end
   end
 
+  describe "value_map/2 when value is a boolean" do
+    test "adds a valueMap function to the queue" do
+      actual_graph = g() |> Graph.value_map(true)
+      expected_graph = Queue.in({"valueMap", [true]}, Queue.new())
+      assert actual_graph == expected_graph
+    end
+  end
+
   describe "values/2" do
     test "adds a value function the queue" do
       actual_graph = g() |> values("foo")

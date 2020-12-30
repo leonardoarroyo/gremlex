@@ -164,6 +164,11 @@ defmodule Gremlex.Graph do
     enqueue(graph, "valueMap", [])
   end
 
+  @spec value_map(Gremlex.Graph.t(), Boolean.t()) :: Gremlex.Graph.t()
+  def value_map(graph, value) when is_boolean(value) do
+    enqueue(graph, "valueMap", value)
+  end
+
   @spec value_map(Gremlex.Graph.t(), String.t()) :: Gremlex.Graph.t()
   def value_map(graph, value) when is_binary(value) do
     enqueue(graph, "valueMap", [value])
